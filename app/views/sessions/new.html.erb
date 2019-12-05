@@ -1,0 +1,22 @@
+<h1>ログイン</h1>
+<div class="login-container">
+    <div class="login-form">
+        <%= form_for(:session, url: login_path) do |f| %>
+            <% if flash[:error_messages] %>
+                <div class="alert alert-danger">
+                    <ul>
+                        <% flash[:error_messages].each do |msg| %>
+                            <li><%= msg %></li>
+                        <% end %>
+                    </ul>
+                <div>
+            <% end %>
+            <%= f.label :email %>
+            <%= f.email_field :email, class: 'form-control' %>
+            <%= f.label :password %>
+            <%= f.password_field :password, class: 'form-control' %>
+            <%= f.submit "ログイン", class: "btn btn-primary" %>
+        <% end %>
+        <p>まだユーザー登録がお済みでない方はこちら <%= link_to "新規登録", signup_path %></p>
+    </div>
+</div>

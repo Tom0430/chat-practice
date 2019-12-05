@@ -1,0 +1,22 @@
+<h1>ユーザー登録</h1>
+<%= form_for @user do |f| %>
+<%# render 'layouts/error_messages', model: f.object %>
+
+<div class="form-group">
+    <%= f.label :username, 'ユーザー名' %>
+    <%= f.text_field :username, class: 'form-control' %>
+</div>
+<div class="form-group">
+    <%= f.label :email, 'メールアドレス' %>
+    <%= f.text_field :email, class: 'form-control' %>
+</div>
+<div class="form-group">
+    <%= f.label :password, 'パスワード' %>
+    <%= f.password_field :password, class: 'form-control' %>
+</div>
+<div class="form-group">
+    <%= f.label :password_confirmation, 'パスワード（確認）' %>
+    <%= f.password_field :password_confirmation, class: 'form-control' %>
+</div>
+<%= f.submit '作成', class: 'btn btn-primary' %>
+<% end %>
