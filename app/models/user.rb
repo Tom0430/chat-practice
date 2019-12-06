@@ -9,6 +9,6 @@ class User < ApplicationRecord
     #大文字・小文字の区別なし
     format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
     #「/i」は大文字・小文字を区別せずにマッチングさせる正規表現
-
-has_secure_password
+    has_many :messages
+    has_secure_password
 end
