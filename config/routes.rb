@@ -2,11 +2,14 @@ Rails.application.routes.draw do
   get 'login' => 'sessions#new'
   post 'login' =>'sessions#create'
   delete 'logout' => 'sessions#destroy'
-
   get 'signup' => 'users#new'
+
   root "tops#top"
 
-# For details on the DSL available within this file, see http://guides.rubyonrails.org/routing    .html
   resources :users, only: [:create]
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  resources :rooms, only: [:show, :create, :index, :destroy] do
+    get :input_password, on: :member, as:'input_password'
+    post :authenticate, on: :member, as:'authenticate'
+
+  end
 end
