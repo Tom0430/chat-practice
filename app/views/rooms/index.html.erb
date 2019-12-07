@@ -1,7 +1,25 @@
+<%= form_for( @room , remote: true, url: rooms_path, method: "post" ) do |f| %>
+    <%= f.label :"ルームの名前を決めてください" %>
+    <%= f.text_field :name %>
+
+    <%= f.label :パスワードを設定したい方は入力 %>
+    <%= f.password_field :password %>
+
+    <%= f.label :パスワード確認用 %>
+    <%= f.password_field :password_confirmation %>
+    <%= f.submit "new room"%>
+<% end %>
+
 <div>
     <ul>
         <% @rooms.each do |room| %>
-            <li><%= link_to "ROOM#{room.id}", room_path(room) %></li>
+            <li>
+                <% if room.password_digest.present? %>
+                    <%= link_to "ROOM#{room.id}「#{room.name}」", input_password_room_path(room) %>
+                <% else %>
+                    <%= link_to "ROOM#{room.id}「#{room.name}」", room_path(room) %>
+                <% end %>
+            </li>
         <% end %>
     </ul>
 </div>

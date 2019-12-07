@@ -23,6 +23,8 @@ ActiveRecord::Schema.define(version: 2019_12_06_042203) do
   end
 
   create_table "rooms", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
