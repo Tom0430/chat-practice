@@ -1,11 +1,12 @@
-<h1>Rooms#show</h1>
-<h1>Chat room</h1>
-<%= @room.id %>
-<div id='messages'data-room_id="<%= @room.id %>" >
-    <%= render @messages %>
+<div class="chat-space">
+    <h5><%= @room.name %></h5>
+    <div id='messages'data-room_id="<%= @room.id %>" >
+        <%= render @messages %>
+    </div>
+
+    <div class="chat-text">
+        <%= label_tag :content, 'ここに文字を入力してください', class: "text-label" %>
+        <%= text_field_tag :content, nil, data: { behavior: 'room_speaker' } %>
+        <%= link_to "ルーム一覧へ", rooms_path %>
+    </div>
 </div>
-
-
-<%= label_tag :content, 'Say something:' %>
-<%= text_field_tag :content, nil, data: { behavior: 'room_speaker' } %>
-<%= link_to "ルーム一覧へ", rooms_path %>

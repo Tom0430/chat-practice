@@ -1,3 +1,24 @@
 // Place all the styles related to the rooms controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.room-submit{
+    color: white;
+    background-color: #25A69A;
+    border: none;
+}
+
+.chat-space{
+
+
+    .chat-text{
+            position: fixed;
+            right: 0;
+            bottom: 10px;
+            left: 0;
+
+        .text-label{
+            color: black;
+        }
+    }
+}
+

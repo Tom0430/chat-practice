@@ -27,6 +27,8 @@ gem 'bcrypt', '~> 3.1.7'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
+gem 'materialize-sass', '~> 1.0.0'
+gem 'material_icons'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
