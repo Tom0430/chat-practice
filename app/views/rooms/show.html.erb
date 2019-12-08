@@ -1,12 +1,12 @@
-<div class="chat-space">
+<div class="chat-room">
     <h5><%= @room.name %></h5>
-    <div id='messages'data-room_id="<%= @room.id %>" >
+    <div id='messages'data-room_id="<%= @room.id %>" class="chat-texts" >
         <%= render @messages %>
     </div>
 
-    <div class="chat-text">
+    <div class="chat-form">
         <%= label_tag :content, 'ここに文字を入力してください', class: "text-label" %>
-        <%= text_field_tag :content, nil, data: { behavior: 'room_speaker' } %>
-        <%= link_to "ルーム一覧へ", rooms_path %>
+        <%= text_field_tag :content, nil, data: { behavior: 'room_speaker' }, class: "chat-text-field" %>
+        <%= link_to "ルーム一覧へ", rooms_path, class: "rooms-link" %>
     </div>
 </div>

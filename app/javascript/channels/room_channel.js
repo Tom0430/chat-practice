@@ -25,7 +25,10 @@ $(function () {
     if (event.keyCode === 13) {
       chatChannel.speak(event.target.value);
       event.target.value = '';
+      var element = document.documentElement;
+      var bottom = element.scrollHeight - element.clientHeight;
+      window.scroll(0, bottom);
       return event.preventDefault();
-    }
+    };
   });
 });
