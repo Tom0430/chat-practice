@@ -1,6 +1,10 @@
 // Place all the styles related to the rooms controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.new-room{
+    border: double 5px black;
+}
+
 .room-submit{
     color: white;
     background-color: #25A69A;
@@ -10,7 +14,6 @@
 .chat-room{
     .chat-texts{
         overflow: scroll;
-        margin-bottom: 110px;
         padding-bottom: 10px;
     }
 
@@ -23,15 +26,21 @@
             padding-bottom: 10px;
             z-index: 2;
             background-color: #EE6E72;
+            color: white;
 
         .text-label{
             color: white;
         }
         .rooms-link{
             color: white;
+            margin-right:5% ;
         }
         .chat-text-field{
             height: 20px;
+        }
+        .room-name{
+            color: white;
+            margin-right:5% ;
         }
     }
 }

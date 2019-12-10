@@ -1,13 +1,14 @@
 class RoomsController < ApplicationController
   before_action :authenticate_user!
   def index
-    @rooms = Room.all.order(:id)
+    @rooms = Room.all.order(created_at: :desc)
+    @rooms = Room.page(params[:page]).per(15)
     @room = Room.new
   end
 
   def show
     @room = Room.find(params[:id])
-    @messages = @room.messages
+    @messages = @room.messages.last(50)
   end
 
   def create
