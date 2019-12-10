@@ -7,7 +7,7 @@
     <div class="chat-form">
         <%= label_tag :content, 'ここに文章を入力してください', class: "text-label" %>
         <%= text_field_tag :content, nil, data: { behavior: 'room_speaker' }, class: "chat-text-field" %>
-        <span class="room-name"><%= "このルームは「"+ @room.name + "」です" %></span>
+        <span class="room-name"><%= "「"+ @room.name + "」" %></span>
         <%= link_to "ルーム一覧へ", rooms_path, class: "rooms-link" %>
         <span>送信した文章が表示されない場合はリロードしてください</span>
     </div>
