@@ -3,6 +3,10 @@
     <div id='messages'data-room_id="<%= @room.id %>" class="chat-texts" >
         <%= render @messages %>
     </div>
+    <% binding.pry %>
+    <% @users.each do |user| %>
+        <%= user.name %>
+    <% end %>
 
     <div class="chat-form">
         <%= label_tag :content, 'ここに文章を入力してください', class: "text-label" %>

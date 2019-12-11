@@ -11,6 +11,9 @@ class RoomsController < ApplicationController
     if @room.password_digest.present? && session[:authenticated_room] != @room.id
       redirect_to rooms_path
     else
+      current_user.rooms << @room
+      current_user.save
+      @users = User.includes(:rooms).where('rooms.id' => @room.id)
       @messages = @room.messages.last(50)
     end
   end
@@ -18,6 +21,8 @@ class RoomsController < ApplicationController
   def create
     room = Room.new(room_params)
     room.save
+    current_user.rooms << room
+    current_user.save
     session[:authenticated_room] = room.id
     redirect_to room_path(room.id)
   end

@@ -1,5 +1,6 @@
 class Room < ApplicationRecord
     has_many :messages
+    has_and_belongs_to_many :users
     has_secure_password validations: false
     validate(on: :update) do |record|
         record.errors.add(:password, :blank) unless record.password_digest.present?
