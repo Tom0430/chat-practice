@@ -6,5 +6,6 @@ class Room < ApplicationRecord
     end
     validates_length_of :password, maximum: ActiveModel::SecurePassword::MAX_PASSWORD_LENGTH_ALLOWED, on: :update
     validates_confirmation_of :password, allow_blank: true, on: :update
-    validates :name, presence: true, length: { maximum: 50 }
+    validates :name, presence: true, length: { maximum: 30 }
+    validates :description, presence: true, length: { maximum: 60 }
 end

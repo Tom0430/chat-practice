@@ -10,6 +10,5 @@ Rails.application.routes.draw do
   resources :rooms, only: [:show, :create, :index, :destroy] do
     get :input_password, on: :member, as:'input_password'
     post :authenticate, on: :member, as:'authenticate'
-
   end
 end

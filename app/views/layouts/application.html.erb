@@ -7,18 +7,27 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   </head>
 
   <body>
-    <header>
-      <% if logged_in? %>
-          <%= current_user.name %>
-          <%= link_to 'ログアウト', logout_path, method: :delete %>
-      <% else %>
-          <%= link_to '新規登録', signup_path %>
-          <%= link_to 'ログイン', login_path %>
-      <% end %>
-    </header>
+    <nav class="header">
+      <div class="nav-wrapper">
+        <div class="container">
+          <a href="/" class="brand-logo">Tadano-Chat</a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <% if logged_in? %>
+              <li><%= current_user.name + "さん" %></li>
+              <li><%= link_to 'ログアウト', logout_path, method: :delete %></li>
+            <% else %>
+              <li><%= link_to '新規登録', signup_path %></li>
+              <li><%= link_to 'ログイン', login_path %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
     <%= yield %>
   </body>
 </html>

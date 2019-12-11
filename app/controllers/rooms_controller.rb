@@ -1,18 +1,24 @@
 class RoomsController < ApplicationController
   before_action :authenticate_user!
   def index
-    @rooms = Room.all.order(:id)
+    @rooms = Room.all.order(created_at: :desc)
+    @rooms = Room.page(params[:page]).per(15)
     @room = Room.new
   end
 
   def show
     @room = Room.find(params[:id])
-    @messages = @room.messages
+    if @room.password_digest.present? && session[:authenticated_room] != @room.id
+      redirect_to rooms_path
+    else
+      @messages = @room.messages.last(50)
+    end
   end
 
   def create
     room = Room.new(room_params)
     room.save
+    session[:authenticated_room] = room.id
     redirect_to room_path(room.id)
   end
 
@@ -23,6 +29,7 @@ class RoomsController < ApplicationController
   def authenticate
     room = Room.find(params[:id])
     if room.authenticate(params[:room][:password])
+      session[:authenticated_room] = room.id
       redirect_to room_path(room)
     else
       @room = room
@@ -32,6 +39,6 @@ class RoomsController < ApplicationController
 
   private
   def room_params
-    params.require(:room).permit(:name, :password, :password_confirmation)
+    params.require(:room).permit(:name, :description, :password)
   end
 end

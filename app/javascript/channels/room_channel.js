@@ -11,6 +11,9 @@ $(function () {
     },
 
     received: function (data) {
+      var element = document.documentElement;
+      var bottom = element.scrollHeight - element.clientHeight;
+      window.scroll(0, bottom);
       return $('#messages').append(data['message']);
     },
 
@@ -26,6 +29,6 @@ $(function () {
       chatChannel.speak(event.target.value);
       event.target.value = '';
       return event.preventDefault();
-    }
+    };
   });
 });
