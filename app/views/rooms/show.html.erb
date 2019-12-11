@@ -3,7 +3,6 @@
     <div id='messages'data-room_id="<%= @room.id %>" class="chat-texts" >
         <%= render @messages %>
     </div>
-    <% binding.pry %>
     <% @users.each do |user| %>
         <%= user.name %>
     <% end %>

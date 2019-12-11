@@ -11,5 +11,8 @@ class RoomChannel < ApplicationCable::Channel
     # jsで実行されたspeakのmessageを受け取り、room_channelのreceivedにブロードキャストする
     # ActionCable.server.broadcast 'room_channel', message: data['message']
     Message.create! content: data['message'], user_id: current_user.id, room_id: params['room']
+    time = Time.now
+    current_user.update_attributes(last_sending_time: time)
   end
+
 end
