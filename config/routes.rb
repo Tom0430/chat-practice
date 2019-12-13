@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   delete 'logout' => 'sessions#destroy'
   get 'signup' => 'users#new'
 
+  get    'user/auth/:provider/callback', to: 'sessions#new'
   root "tops#top"
 
   resources :users, only: [:create]
