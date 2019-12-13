@@ -15,6 +15,7 @@ class RoomsController < ApplicationController
       current_user.save
       @users = User.includes(:rooms).where('rooms.id' => @room.id)
       @messages = @room.messages.last(50)
+      session.delete(:authenticated_room)
     end
   end
 

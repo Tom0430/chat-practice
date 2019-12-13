@@ -3,15 +3,12 @@
 # It's helpful, but not entirely necessary to understand cron before proceeding.
 # http://en.wikipedia.org/wiki/Cron
 
-require File.expand_path(File.dirname(__FILE__) + "/environment")
+set :output, 'log/cron.log'
+set :environment, "development"
+set :path, "/path/to/app"
 
-rails_env = Rails.env.to_sym
-rails_root = Rails.root.to_s
-
-# environment は設定しないと production になってしまう
-set :environment, rails_env
-set :output, "#{rails_root}/log/cron.log"
 
 every 1.minute do
-    runner "RoomsHelper.delete_room_authentication"
+    rake 'task_sample:delete_entering_record'
 end
+
