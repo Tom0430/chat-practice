@@ -1,9 +1,11 @@
-<p>top</p>
+<div class="container">
+    <h3>ようこそTadano-Chatへ！</h3>
+    <p>絵文字も写真も送れないですが、無料のチャットサイトです。</p>
+    <p>まずは新規登録,またはログインをお願いします</p>
+    <p><%= link_to  "新規登録", signup_path %></p>
+    <p><%= link_to  "ログイン", login_path %></p>
 
-<%= link_to  "ルーム一覧", rooms_path %>
-
-
-
-
-
-
+    <p>下の一覧から入りたいチャットルームを選んで楽しくチャットしてください！</p>
+    <p>パスワードを設定することもできます。</p>
+    <%= link_to  "チャットルーム一覧", rooms_path %>
+</div>
