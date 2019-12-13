@@ -1,4 +1,4 @@
 
 <div class='message'>
-    <p><%= "#{message.user.name}: #{message.content}" %></p>
+    <p><%= "#{message.created_at.to_s(:time)} #{message.user.name}: #{message.content}" %></p>
 </div>
