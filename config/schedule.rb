@@ -5,10 +5,9 @@
 
 set :output, 'log/cron.log'
 set :environment, "development"
-set :path, "/path/to/app"
 
 
-every 1.minute do
+every 1.minutes do
     rake 'task_sample:delete_entering_record'
 end
 
