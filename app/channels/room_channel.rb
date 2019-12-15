@@ -10,6 +10,12 @@ class RoomChannel < ApplicationCable::Channel
   def speak(data)
     # jsで実行されたspeakのmessageを受け取り、room_channelのreceivedにブロードキャストする
     # ActionCable.server.broadcast 'room_channel', message: data['message']
-    Message.create! content: data['message'], user_id: current_user.id, room_id: params['room']
+    binding.pry
+    if data['message'][0,12] == "C:\\fakepath\\"
+      Message.create image: data['message'], user_id: current_user.id, room_id: params['room']
+      binding.pry
+    else
+      Message.create! content: data['message'], user_id: current_user.id, room_id: params['room']
+    end
   end
 end

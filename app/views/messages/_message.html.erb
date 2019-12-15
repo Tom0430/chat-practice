@@ -1,4 +1,7 @@
 
 <div class='message'>
+    <% if message.image.present? %>
+        <%= message.image %>
+    <% end %>
     <p><%= "#{message.created_at.to_s(:time)} #{message.user.name}: #{message.content}" %></p>
 </div>
