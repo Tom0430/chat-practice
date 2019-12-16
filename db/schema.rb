@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_06_042203) do
+ActiveRecord::Schema.define(version: 2019_12_13_101828) do
 
   create_table "messages", force: :cascade do |t|
     t.text "content"
@@ -36,6 +36,8 @@ ActiveRecord::Schema.define(version: 2019_12_06_042203) do
     t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "provider"
+    t.string "uid"
   end
 
   add_foreign_key "messages", "rooms"
