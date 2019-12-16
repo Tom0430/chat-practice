@@ -9,5 +9,12 @@ class User < ApplicationRecord
     format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
     #「/i」は大文字・小文字を区別せずにマッチングさせる正規表現
     has_many :messages
-    has_secure_password
+    has_secure_password validations: false
+    validates :password, length: (6..32), presence: true, confirmation: true, unless: :google_user?
+
+
+    private
+    def google_user?
+        self.uid.present?
+    end
 end

@@ -1,12 +1,14 @@
 <div class="container">
     <h3>ようこそTadano-Chatへ！</h3>
     <p>絵文字も写真も送れないですが、無料のチャットサイトです。</p>
-    <p>まずは新規登録,またはログインをお願いします</p>
-    <p><%= link_to  "新規登録", signup_path %></p>
-    <p><%= link_to  "ログイン", login_path %></p>
-    <p><%= link_to 'グーグルアカウントでログイン' %></p>
-
-    <p>下の一覧から入りたいチャットルームを選んで楽しくチャットしてください！</p>
-    <p>パスワードを設定することもできます。</p>
-    <%= link_to  "チャットルーム一覧", rooms_path %>
+    <% if logged_in? %>
+        <p>下の一覧から入りたいチャットルームを選んで楽しくチャットしてください！</p>
+        <p>パスワードを設定することもできます。</p>
+        <%= link_to  "チャットルーム一覧", rooms_path %>
+    <% else %>
+        <p>まずは新規登録,またはログインをお願いします</p>
+        <p><%= link_to  "新規登録", signup_path %></p>
+        <p><%= link_to  "ログイン", login_path %></p>
+        <p><%= link_to 'グーグルアカウントでログイン', "/auth/google_oauth2", id: "sign_in" %></p>
+    <% end %>
 </div>
