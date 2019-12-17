@@ -6,7 +6,7 @@
         <p>パスワードを設定することもできます。</p>
         <%= link_to  "チャットルーム一覧", rooms_path %>
     <% else %>
-        <p>まずは新規登録,またはログインをお願いします</p>
+        <p>まずは新規登録、またはログインをお願いします</p>
         <p><%= link_to  "新規登録", signup_path %></p>
         <p><%= link_to  "ログイン", login_path %></p>
         <p><%= link_to 'グーグルアカウントでログイン', "/auth/google_oauth2", id: "sign_in" %></p>
