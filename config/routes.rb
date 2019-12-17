@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   delete 'logout' => 'sessions#destroy'
   get 'signup' => 'users#new'
 
-  root "tops#top"
+  get  '/auth/:provider/callback', to: 'users#google_login', as:'google_login'
+  root 'tops#top'
 
   resources :users, only: [:create]
   resources :rooms, only: [:show, :create, :index, :destroy] do
