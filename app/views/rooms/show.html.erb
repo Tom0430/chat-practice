@@ -12,3 +12,14 @@
         <span>送信した文章が表示されない場合はリロードしてください</span>
     </div>
 </div>
+
+<script>
+$(document).ready( function(){
+if (window.name != "test") {
+location.reload();
+window.name = "test";
+} else {
+window.name = "";
+}
+});
+</script>
