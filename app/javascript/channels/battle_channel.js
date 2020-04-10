@@ -9,10 +9,10 @@ consumer.subscriptions.create("BattleChannel", {
   },
 
   received(data) {
-    // Called when there's incoming data on the websocket for this channel
+    console.log(data)
   },
 
   attack: function() {
     return this.perform('attack');
-  }
+  },
 });

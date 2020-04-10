@@ -1,6 +1,6 @@
 class BattleChannel < ApplicationCable::Channel
   def subscribed
-    # stream_from "some_channel"
+    stream_from "battle_channel"
   end
 
   def unsubscribed
@@ -8,5 +8,6 @@ class BattleChannel < ApplicationCable::Channel
   end
 
   def attack
+    # ActionCable.server.broadcast "battle_channel", message: "hoge"
   end
 end
