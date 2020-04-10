@@ -12,7 +12,7 @@
         <% end %>
     </div>
 
-
+    <%= link_to "LoveLetterをプレイする", battle_path %>
     <% @rooms.each do |room| %>
         <div class="card-panel hoverable">
             <div class="card-image"></div>
@@ -29,6 +29,3 @@
     <% end %>
 <%= paginate @rooms %>
 </div>
-
-
-

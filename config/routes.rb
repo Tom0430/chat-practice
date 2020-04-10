@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   get  '/auth/:provider/callback', to: 'users#google_login', as:'google_login'
   root 'tops#top'
+  get 'battle' => 'battle#index'
 
   resources :users, only: [:create]
   resources :rooms, only: [:show, :create, :index, :destroy] do
