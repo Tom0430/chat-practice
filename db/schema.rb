@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 2020_04_10_120421) do
   create_table "cards", force: :cascade do |t|
     t.string "name"
     t.integer "strength"
-    t.string "discription"
+    t.string "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "opend", default: false
